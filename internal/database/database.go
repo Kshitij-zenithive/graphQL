@@ -1,10 +1,8 @@
-// internal/database/database.go
 package database
 
 import (
 	"fmt"
 	"log"
-	"os"
 	"time"
 
 	"book_management_system/internal/models"
@@ -27,7 +25,6 @@ func InitDB() error {
 		return fmt.Errorf("failed to run migrations: %w", err)
 	}
 
-	// 1 commomn method to
 	// Seed initial data
 	if err := seedData(); err != nil {
 		return fmt.Errorf("failed to seed data: %w", err)
@@ -39,14 +36,7 @@ func InitDB() error {
 
 // connectDB establishes the database connection
 func connectDB() error {
-	dbHost := os.Getenv("DB_HOST")
-	dbUser := os.Getenv("DB_USER")
-	dbPassword := os.Getenv("DB_PASSWORD")
-	dbName := os.Getenv("DB_NAME")
-	dbPort := os.Getenv("DB_PORT")
-
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=UTC",
-		dbHost, dbUser, dbPassword, dbName, dbPort)
+	dsn := "postgresql://book_management_owner:kBT1edxO8Khl@ep-spring-tooth-a1h39tm9.ap-southeast-1.aws.neon.tech/book_management?sslmode=require"
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
