@@ -20,9 +20,9 @@ const defaultPort = "8080"
 
 func main() {
 	// Load environment variables from .env file
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("Error loading .env file:", err)
-	}
+	// if err := godotenv.Load(); err != nil {
+	// 	log.Fatal("Error loading .env file:", err)
+	// }
 
 	// Initialize database connection
 	if err := database.InitDB(); err != nil {
