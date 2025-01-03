@@ -36,7 +36,7 @@ func InitDB() error {
 
 // connectDB establishes the database connection
 func connectDB() error {
-	dsn := "postgresql://book_management_owner:kBT1edxO8Khl@ep-spring-tooth-a1h39tm9.ap-southeast-1.aws.neon.tech/book_management?sslmode=require"
+	dsn := "postgresql://book_management_owner:KEY@ep-spring-tooth-a1h39tm9.ap-southeast-1.aws.neon.tech/book_management?sslmode=require"
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
