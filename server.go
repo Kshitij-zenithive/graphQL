@@ -5,7 +5,7 @@ import (
 	"book_management_system/internal/database"
 	"log"
 	"net/http"
-	"os"
+	
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/handler/extension"
@@ -30,7 +30,7 @@ func main() {
 	}
 
 	// Get port from environment or use default
-	port := os.Getenv("PORT")
+	port := "8080"
 	if port == "" {
 		port = defaultPort
 	}
